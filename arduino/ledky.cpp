@@ -118,11 +118,11 @@ void ledky::debugMode() {
   LEDBuffer2[11] = 14;
   LEDBuffer2[12] = random(1,13);
   if (LEDBuffer2[12] == 12) LEDBuffer2[12] = 14;
-  for (int i = NUMPIXELS - 1; i > 12; i--) {
+  for (int i = NUMPIXELS - 1; i > 11; i--) {
     LEDBuffer2[i] = LEDBuffer2[i - 1];
   }
   update(false);
-  delay(100);
+  if (digitalRead(2)) delay(250);
 }
 
 void ledky::set(uint16_t index, uint8_t col) {

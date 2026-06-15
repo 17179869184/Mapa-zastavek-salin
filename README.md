@@ -1,5 +1,8 @@
 # Mapa šalin
 
+## Ukázka
+[Video](https://youtube.com/watch?v=xEewmRj0Wb8)
+
 ## Software
 ### Získání dat
 Data jsou od společnosti KORDIS JMK, ve formátu GTFS (*[General Transit Feed Specification](https://gtfs.org/documentation/schedule)*), stažená [zde](https://kordis-jmk.cz/gtfs/gtfs.zip). Z dat se vezmou soubory `calendar_dates.txt`, `calendar.txt`, `stop_times.txt`, `stops.txt` a `trips.txt` a načtou se do databáze. Ze souboru `calendar.txt` se vezme `start_date`, `end_date`, `monday`-`sunday` a `service_id`. Dané `service_id` platí od `start_date` do `end_date` v dané dny v týdnu. Z `calendar_dates.txt` se vezme `date` a `service_id`. Dané `service_id` v den `date` neplatí, přestože by podle `calendar.txt` mělo. Z `trips.txt` se vezme `trip_id`, `route_id` a `service_id`. Určitá trasa v určitý čas má unikátní `trip_id`, platí podle `service_id` a na dané trase jede linka číslo `route_id`. Odsud se vyfiltrují pouze `route_id`, která odpovídají linkám 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12 a 14. Ze `stop_times.txt` se vezme `trip_id`, `stop_id`, `arrival_time`, `departure_time` a `stop_sequence`. Na daném `trip_id` vůz přijede / odjede v `arrival_time` / `departure_time` (často se rovnají, u konečných zastávek je `departure_time` vlastně `arrival_time` příštího `trip_id` na stejné lince ze stejné zastávky) na / ze zastávky `stop_id`, která je v pořadí číslo `stop_sequence` (od 1). Odsud se vyfiltrují pouze `trip_id`, která zbyla v `trips.txt`. Ze `stops.txt` se vezme `stop_id` a `stop_name`. Vyfiltrují se pouze ta `stop_id`, která zbyla v `stop_times.txt`. Pomocí SQL příkazů se pak hledají odjezdy.

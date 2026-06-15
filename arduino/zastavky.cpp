@@ -471,7 +471,7 @@ uint16_t najitLedku(uint8_t z, uint8_t s) {
     if (s == 10) return 305;
     if (s == 12) return 312;
     if (s == 14) return 313;
-  } else if (z == VOZOVNA_MEDLANKY || s == VOZOVNA_MEDLANKY_2) {
+  } else if (z == VOZOVNA_MEDLANKY || z == VOZOVNA_MEDLANKY_2) {
     if (s == 1) return 210;
     if (s == 2) return 209;
     if (s == 3) return 204;
