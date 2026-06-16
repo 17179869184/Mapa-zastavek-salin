@@ -1,7 +1,7 @@
 # Mapa šalin
 
 ## Ukázka
-[Video](https://youtube.com/watch?v=xEewmRj0Wb8)
+[Video](https://youtube.com/watch?v=llajK7f5sJU)
 
 ## Software
 ### Získání dat
